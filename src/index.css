@@ -1,0 +1,163 @@
+:root {
+  --bg: #fffaf7;
+  --bg-alt: #ffe7f4;
+  --ink: #1a0e16;
+  --ink-soft: #7a4a63;
+  --pink: #ff2ec4;
+  --hot-pink: #ff0074;
+  --bubblegum: #ff7ed4;
+  --gold: #ffd23f;
+  --lilac: #ffd6f0;
+  --line: rgba(255, 0, 116, 0.14);
+
+  --chrome-gradient: linear-gradient(
+    100deg,
+    #ff0074 0%,
+    #ff2ec4 20%,
+    #ff7ed4 38%,
+    #ff2ec4 52%,
+    #ff0074 66%,
+    #ffffff 71%,
+    #ff0074 76%,
+    #ff2ec4 88%,
+    #ff7ed4 100%
+  );
+  --glossy-gradient: linear-gradient(135deg, #ff0074 0%, #ff2ec4 55%, #ff7ed4 100%);
+
+  --font-display: "Fredoka", "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", "Segoe UI", sans-serif;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle, rgba(255, 0, 116, 0.1) 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 210, 63, 0.09) 1px, transparent 1.6px);
+  background-size: 26px 26px, 34px 34px;
+  background-position: 0 0, 13px 17px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--pink);
+  color: #fff;
+}
+
+/* Reusable chrome/gradient headline text */
+.chrome-text {
+  background: var(--chrome-gradient);
+  background-size: 320% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: chromeSheen 9s linear infinite;
+}
+
+@keyframes chromeSheen {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 320% center;
+  }
+}
+
+.section {
+  position: relative;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 6vw, 5rem);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--hot-pink);
+  margin-bottom: 0.75rem;
+}
+
+.glossy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--glossy-gradient);
+  background-size: 160% 160%;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 8px 24px rgba(255, 0, 116, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-position 0.6s ease;
+}
+
+.glossy-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 14px 32px rgba(255, 46, 196, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  background-position: 100% 0%;
+}
+
+.glossy-btn:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.glossy-btn.outline {
+  background: #fff;
+  color: var(--ink);
+  box-shadow:
+    0 4px 16px rgba(25, 16, 25, 0.12),
+    inset 0 0 0 2px var(--line);
+}
+
+.glossy-btn.outline:hover {
+  box-shadow:
+    0 8px 24px rgba(255, 0, 116, 0.25),
+    inset 0 0 0 2px var(--hot-pink);
+}
